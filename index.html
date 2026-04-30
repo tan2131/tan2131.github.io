@@ -1,116 +1,693 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>Ruiting Tan 的个人主页</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruiting Tan | 嵌入式硬件工程师</title>
   <style>
+    :root {
+      --bg: #eef3f8;
+      --card: #ffffff;
+      --text: #162033;
+      --muted: #64748b;
+      --primary: #1e3a8a;
+      --primary-2: #2563eb;
+      --line: #dbe4ef;
+      --soft: #eaf1ff;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, "Microsoft YaHei", sans-serif;
       margin: 0;
-      background: #f4f6f8;
-      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 45%, #f7f9fc 100%);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    header {
-      background: #1f2937;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-2);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 34px 22px 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .hero-card,
+    .profile-card,
+    .section,
+    .project-card,
+    .skill-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(219, 228, 239, 0.95);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+    }
+
+    .hero-card {
+      padding: 42px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -80px;
+      bottom: -80px;
+      background: rgba(37, 99, 235, 0.12);
+      border-radius: 50%;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      background: var(--soft);
+      color: var(--primary);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 22px 0 12px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero-text {
+      color: #475569;
+      max-width: 700px;
+      font-size: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary-2);
       color: white;
-      padding: 50px 20px;
-      text-align: center;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.32);
     }
 
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-      color: #d1d5db;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    section {
+    .btn-secondary {
       background: white;
-      margin-bottom: 20px;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      color: var(--primary);
+      border-color: var(--line);
     }
 
-    h2 {
-      color: #111827;
-      border-left: 5px solid #2563eb;
-      padding-left: 10px;
+    .btn-secondary:hover {
+      border-color: var(--primary-2);
+      color: var(--primary-2);
+      transform: translateY(-2px);
     }
 
-    .project {
-      margin-bottom: 15px;
-      padding: 15px;
-      background: #f9fafb;
-      border-radius: 8px;
+    .profile-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      font-weight: 900;
+      box-shadow: 0 16px 35px rgba(30, 58, 138, 0.26);
+    }
+
+    .profile-card h2 {
+      margin: 0;
+      font-size: 26px;
+      color: #0f172a;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--line);
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .info-item span:first-child {
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 26px 0 12px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section {
+      padding: 32px;
+      margin-top: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 27px;
+      color: #0f172a;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 14px;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      padding: 18px 18px 18px 22px;
+      border-left: 4px solid var(--primary-2);
+      background: #f8fbff;
+      border-radius: 16px;
+    }
+
+    .timeline-item .time {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .timeline-item h3 {
+      margin: 6px 0 6px;
+      font-size: 18px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #475569;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+    }
+
+    .project-card h3 {
+      margin: 10px 0 10px;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    .project-card p {
+      color: #475569;
+      margin: 0 0 14px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef5ff;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      padding: 20px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .skill-card h3 {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .skill-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #475569;
+    }
+
+    .honors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .honor {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8fbff;
+      border: 1px solid var(--line);
+      color: #334155;
+      font-weight: 700;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-box {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #f8fbff;
+    }
+
+    .contact-box span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-box strong {
+      display: block;
+      margin-top: 6px;
+      color: #0f172a;
+      word-break: break-word;
     }
 
     footer {
       text-align: center;
-      color: #666;
-      padding: 25px;
+      color: var(--muted);
+      padding: 32px 16px 48px;
+      font-size: 14px;
     }
 
-    a {
-      color: #2563eb;
-      text-decoration: none;
+    @media (max-width: 860px) {
+      .hero,
+      .projects,
+      .skills-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-card,
+      .section {
+        padding: 26px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .profile-card,
+      .section {
+        border-radius: 18px;
+      }
     }
   </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Ruiting Tan</a>
+      <div class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#projects">项目经历</a>
+        <a href="#skills">技能</a>
+        <a href="#honors">荣誉</a>
+        <a href="#contact">联系我</a>
+      </div>
+    </div>
+  </nav>
 
-  <header>
-    <h1>Ruiting Tan 的个人主页</h1>
-    <p>嵌入式开发 / PCB设计 / 硬件项目 / 学习记录</p>
-  </header>
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <span class="tag">Embedded Hardware Engineer</span>
+        <h1>你好，我是 Ruiting Tan</h1>
+        <div class="subtitle">电子信息工程 · 智能嵌入式方向</div>
+        <p class="hero-text">
+          我关注嵌入式硬件、PCB Layout、工业数据采集与硬件调试。曾参与西门子杯工业嵌入式数据采集系统、昆仑杯 Hi3559AV100 8K 超清音视频处理板等项目，具备原理图设计、PCB 布局布线、BOM 整理、焊接测试与调试经验。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">查看项目经历</a>
+          <a class="btn btn-secondary" href="https://github.com/tan2131" target="_blank" rel="noopener">访问 GitHub</a>
+        </div>
+      </div>
 
-  <main>
-    <section>
-      <h2>关于我</h2>
-      <p>
-        你好，我是 Ruiting Tan。这里用于展示我的学习记录、比赛项目、硬件设计和嵌入式开发作品。
-      </p>
+      <aside class="profile-card" id="about">
+        <div>
+          <div class="avatar">RT</div>
+          <h2>嵌入式硬件工程师方向</h2>
+          <p>广东江门 · 本科 · 电子信息工程</p>
+        </div>
+        <div class="info-list">
+          <div class="info-item"><span>求职意向</span><strong>嵌入式硬件工程师</strong></div>
+          <div class="info-item"><span>学校</span><strong>广东理工学院</strong></div>
+          <div class="info-item"><span>专业</span><strong>电子信息工程（智能嵌入式）</strong></div>
+          <div class="info-item"><span>GitHub</span><strong>tan2131</strong></div>
+        </div>
+      </aside>
     </section>
 
-    <section>
-      <h2>我的项目</h2>
+    <section class="stats" aria-label="个人亮点">
+      <div class="stat"><strong>PCB</strong><span>Layout 与硬件设计</span></div>
+      <div class="stat"><strong>STM32</strong><span>GD32 / ESP32 开发基础</span></div>
+      <div class="stat"><strong>8 层板</strong><span>高速接口与DFM经验</span></div>
+      <div class="stat"><strong>项目</strong><span>比赛项目与课程设计</span></div>
+    </section>
 
-      <div class="project">
-        <h3>智能窗帘系统</h3>
-        <p>基于 C 语言和嵌入式开发的课程设计项目。</p>
+    <section class="section">
+      <div class="section-title">
+        <h2>教育背景</h2>
+        <p>电子信息工程（智能嵌入式）方向，学习嵌入式系统、PCB 设计、单片机开发与硬件调试相关内容。</p>
       </div>
-
-      <div class="project">
-        <h3>昆仑杯 Hi3559AV100 项目</h3>
-        <p>用于保存硬件设计、文档和比赛资料。</p>
-      </div>
-
-      <div class="project">
-        <h3>PT100 温度采样板</h3>
-        <p>包含 PT100 信号调理、电源设计、ADC 采样和测试板设计。</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">2018.09 — 2022.06</div>
+          <h3>广东理工学院 · 电子信息工程（智能嵌入式）</h3>
+          <p>本科阶段重点积累嵌入式硬件设计、MCU 开发、EDA 工具使用、焊接测试与工程文件整理能力。</p>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>联系方式</h2>
-      <p>GitHub：<a href="https://github.com/tan2131">tan2131</a></p>
+    <section class="section" id="projects">
+      <div class="section-title">
+        <h2>项目经历</h2>
+        <p>以下内容根据个人简历整理，重点突出硬件设计、嵌入式开发、接口调试和工程交付能力。</p>
+      </div>
+
+      <div class="projects">
+        <article class="project-card">
+          <span class="tag">工业嵌入式</span>
+          <h3>工业嵌入式数据采集系统</h3>
+          <p>
+            参与“西门子杯工业嵌入式”项目，基于 GD32F470VET6 实现电压数据采集、处理、显示与存储功能。负责逻辑代码编写，设计按键与串口控制流程，并集成 RTC 实时时钟、TF 卡存储、参数存储、数据加密和配置文件读取等功能。
+          </p>
+          <div class="badge-row">
+            <span class="badge">GD32F470VET6</span>
+            <span class="badge">数据采集</span>
+            <span class="badge">串口控制</span>
+            <span class="badge">TF卡存储</span>
+            <span class="badge">RTC</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="tag">高速 PCB</span>
+          <h3>Hi3559AV100 8K 超清音视频处理板设计</h3>
+          <p>
+            参与“昆仑杯”工业软件创新挑战赛，面向 8K 高性能 8 层工业级 PCB 进行全流程设计。负责电源、USB3.0、JTAG、传感器中心与 WiFi 连接等原理图设计；参与 Hi3559AV100 主芯片扇出、核心器件布局、高速差分信号等长与阻抗控制，并完成 DFM 审查与 Gerber、ODB++ 生产文件交付。
+          </p>
+          <div class="badge-row">
+            <span class="badge">Hi3559AV100</span>
+            <span class="badge">8层PCB</span>
+            <span class="badge">USB3.0</span>
+            <span class="badge">BGA扇出</span>
+            <span class="badge">DFM</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="tag">课程项目</span>
+          <h3>智能窗帘系统</h3>
+          <p>
+            基于 C 语言与嵌入式控制思路完成课程设计，围绕传感器输入、控制逻辑、执行机构驱动和人机交互进行系统实现，强化了单片机工程结构与调试能力。
+          </p>
+          <div class="badge-row">
+            <span class="badge">C语言</span>
+            <span class="badge">MCU</span>
+            <span class="badge">传感器</span>
+            <span class="badge">控制逻辑</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="tag">硬件设计</span>
+          <h3>PT100 温度采样与电源板设计</h3>
+          <p>
+            围绕工业嵌入式系统开发，开展 PT100 温度采样板、精密电阻模拟测试板与 DC-DC 降压电源板设计，覆盖恒流源激励、信号调理、ADC 采样、SPI 接口、电源保护、PCB 布局与调试验证等内容。
+          </p>
+          <div class="badge-row">
+            <span class="badge">PT100</span>
+            <span class="badge">ADC</span>
+            <span class="badge">SPI</span>
+            <span class="badge">DC-DC</span>
+            <span class="badge">PCB调试</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-title">
+        <h2>掌握技能</h2>
+        <p>能力方向覆盖硬件设计、EDA 工具、MCU 开发基础、焊接测试和工程交付。</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>硬件与 PCB</h3>
+          <ul>
+            <li>原理图设计与 PCB Layout</li>
+            <li>多层板布局布线与 DFM 审查</li>
+            <li>高速差分线等长与阻抗控制基础</li>
+            <li>电源、USB、JTAG、传感器接口设计</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>开发工具</h3>
+          <ul>
+            <li>Altium Designer</li>
+            <li>嘉立创 EDA</li>
+            <li>CubeMX</li>
+            <li>Keil</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>MCU 与调试</h3>
+          <ul>
+            <li>STM32 / GD32 / ESP32</li>
+            <li>串口、SPI、ADC 等外设基础</li>
+            <li>焊接、测试、故障排查</li>
+            <li>3D 打印建模基础</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="honors">
+      <div class="section-title">
+        <h2>荣誉与证书</h2>
+        <p>比赛、证书与校园经历。</p>
+      </div>
+      <div class="honors">
+        <div class="honor">西门子杯国初赛二等奖</div>
+        <div class="honor">PCB Layout 工程师初级证</div>
+        <div class="honor">讯飞积分赛一等奖</div>
+        <div class="honor">讯飞杯优秀奖</div>
+        <div class="honor">校奖学金一、二等奖</div>
+        <div class="honor">校优秀学生干部</div>
+        <div class="honor">校三好学生</div>
+        <div class="honor">优秀工作人员</div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-title">
+        <h2>联系我</h2>
+        <p>这个网页是公开页面，建议不要直接放手机号。需要公开联系方式时，可以优先放 GitHub 与邮箱。</p>
+      </div>
+      <div class="contact">
+        <a class="contact-box" href="https://github.com/tan2131" target="_blank" rel="noopener">
+          <span>GitHub</span>
+          <strong>github.com/tan2131</strong>
+        </a>
+        <a class="contact-box" href="mailto:tan2131520968@qq.com">
+          <span>Email</span>
+          <strong>tan2131520968@qq.com</strong>
+        </a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Ruiting Tan</p>
+    © 2026 Ruiting Tan. Built with GitHub Pages.
   </footer>
-
 </body>
 </html>
