@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人简历与作品展示</title>
+  <title>Tan Ruiting｜个人简历与作品展示</title>
   <style>
     * {
       margin: 0;
@@ -109,7 +109,7 @@
     .hero p {
       color: #475569;
       font-size: 18px;
-      max-width: 680px;
+      max-width: 700px;
       margin-bottom: 28px;
     }
 
@@ -311,6 +311,30 @@
       transform: translateY(-6px);
     }
 
+    .project-card.featured {
+      grid-column: span 2;
+      border: 2px solid #2563eb;
+      background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+      box-shadow: 0 24px 60px rgba(37, 99, 235, 0.16);
+    }
+
+    .project-card.featured .project-cover {
+      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+      color: white;
+      font-size: 50px;
+    }
+
+    .project-badge {
+      display: inline-flex;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
     .project-cover {
       height: 160px;
       display: flex;
@@ -334,6 +358,13 @@
       color: #64748b;
       font-size: 15px;
       margin-bottom: 14px;
+    }
+
+    .project-content ul {
+      padding-left: 18px;
+      margin-bottom: 14px;
+      color: #64748b;
+      font-size: 14px;
     }
 
     .labels {
@@ -377,6 +408,30 @@
       font-size: 14px;
     }
 
+    .honors {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .honor-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .honor-item h3 {
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .honor-item p {
+      color: #64748b;
+      font-size: 15px;
+    }
+
     .contact-box {
       background: linear-gradient(135deg, #2563eb, #0f172a);
       border-radius: 30px;
@@ -410,6 +465,7 @@
       padding: 13px 16px;
       border-radius: 16px;
       color: white;
+      word-break: break-all;
     }
 
     footer {
@@ -443,8 +499,15 @@
       }
 
       .skills,
-      .projects {
+      .projects,
+      .honors {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .project-card.featured {
+        grid-column: span 2;
       }
     }
 
@@ -467,8 +530,13 @@
       }
 
       .skills,
-      .projects {
+      .projects,
+      .honors {
         grid-template-columns: 1fr;
+      }
+
+      .project-card.featured {
+        grid-column: span 1;
       }
 
       .contact-box {
@@ -486,6 +554,7 @@
         <a href="#skills">技能</a>
         <a href="#projects">作品</a>
         <a href="#experience">经历</a>
+        <a href="#honors">荣誉</a>
         <a href="#contact">联系我</a>
       </nav>
     </div>
@@ -495,25 +564,26 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="tag">👋 欢迎来到我的个人主页</div>
+          <div class="tag">嵌入式硬件 / PCB Layout / 硬件调试</div>
           <h1>你好，我是 <span>Tan Ruiting</span></h1>
           <p>
-            我正在学习电子设计、嵌入式开发、网页制作和项目实践。这个网站用于展示我的个人简历、学习经历、项目作品和证书成果。
+            电子信息工程（智能嵌入式）方向学习者，求职方向为嵌入式硬件工程师、PCB设计工程师、硬件测试工程师。我的作品集重点突出 8K超清音视频处理板、工业嵌入式数据采集系统、PT100温度采集板、电源保护与降压板、STM32小车控制底板等真实项目经历，展示原理图设计、PCB布局布线、高速差分信号、传感器采集、电源保护和板级调试能力。
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#projects">查看我的作品</a>
-            <a class="btn btn-outline" href="#contact">联系我</a>
+            <a class="btn btn-primary" href="#projects">查看我的项目</a>
+            <a class="btn btn-outline" href="mailto:tan2131520968@qq.com">联系我</a>
           </div>
         </div>
 
         <aside class="profile-card">
           <div class="avatar">T</div>
           <h2>Tan Ruiting</h2>
-          <p>电子信息 / 嵌入式学习者 / 项目实践者</p>
+          <p>嵌入式硬件方向 / PCB Layout / 项目实践</p>
           <div class="info-list">
-            <div><strong>方向</strong><span>嵌入式、硬件、电路设计</span></div>
-            <div><strong>工具</strong><span>嘉立创EDA、GitHub、Keil</span></div>
-            <div><strong>目标</strong><span>持续积累项目作品</span></div>
+            <div><strong>专业</strong><span>电子信息工程（智能嵌入式）</span></div>
+            <div><strong>籍贯</strong><span>广东江门</span></div>
+            <div><strong>邮箱</strong><span>tan2131520968@qq.com</span></div>
+            <div><strong>GitHub</strong><span>github.com/tan2131</span></div>
           </div>
         </aside>
       </div>
@@ -530,17 +600,17 @@
           <div class="card">
             <h3>个人简介</h3>
             <p>
-              我对电子设计、单片机开发、传感器应用和网页展示比较感兴趣。目前正在通过实际项目提升自己的动手能力，包括电路原理图设计、PCB布局、模块调试、GitHub项目管理和网页发布。
+              我主要关注硬件与PCB方向，正在通过真实项目提升原理图设计、元器件选型、PCB布局布线、焊接测试和故障排查能力。相比单纯展示学习经历，我更希望用具体项目证明自己做过什么、负责过什么、解决过什么问题。
             </p>
           </div>
 
           <div class="card">
-            <h3>我的特点</h3>
+            <h3>能力关键词</h3>
             <ul>
-              <li>愿意从零开始学习新工具和新技术</li>
-              <li>重视实际操作，喜欢把想法做成可以展示的作品</li>
-              <li>能持续记录问题、总结经验、改进项目</li>
-              <li>正在逐步建立自己的作品集和技术积累</li>
+              <li>熟悉基础原理图设计、接口电路、电源保护与DCDC/LDO电源模块</li>
+              <li>掌握嘉立创EDA、Altium Designer、CubeMX、Keil等工具的基础使用</li>
+              <li>接触 STM32、GD32、ESP32 等 MCU 平台及常见外设接口</li>
+              <li>具备基础焊接、万用表测量、短路排查、分模块上电和问题复盘能力</li>
             </ul>
           </div>
         </div>
@@ -557,26 +627,26 @@
         <div class="skills">
           <div class="skill-item">
             <div class="skill-icon">🔌</div>
-            <h3>电路设计</h3>
-            <p>学习电源保护、DCDC降压、传感器采集、PCB布局等内容。</p>
+            <h3>原理图设计</h3>
+            <p>电源输入、DCDC、LDO、USB3.0、JTAG、传感器、WiFi连接、MCU外设和测试点设计。</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-icon">🧩</div>
+            <h3>PCB Layout</h3>
+            <p>8层板布局、高速差分等长、阻抗控制、BGA扇出、电源路径、GND回流和DFM检查。</p>
           </div>
 
           <div class="skill-item">
             <div class="skill-icon">💻</div>
-            <h3>嵌入式开发</h3>
-            <p>了解 STM32、传感器模块、OLED显示、电机驱动等应用。</p>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-icon">🌐</div>
-            <h3>网页制作</h3>
-            <p>能够使用 HTML、CSS 制作个人主页，并部署到 GitHub Pages。</p>
+            <h3>嵌入式验证</h3>
+            <p>使用 STM32/GD32 进行 ADC、SPI、UART、RTC、TF卡和参数存储等功能验证。</p>
           </div>
 
           <div class="skill-item">
             <div class="skill-icon">🧰</div>
-            <h3>项目管理</h3>
-            <p>使用 GitHub 保存代码、文档和项目记录，逐步形成作品集。</p>
+            <h3>焊接与调试</h3>
+            <p>焊接测试、万用表测短路/电压/电阻、限流上电、故障定位和项目复盘。</p>
           </div>
         </div>
       </div>
@@ -590,13 +660,54 @@
         </div>
 
         <div class="projects">
+          <article class="project-card featured">
+            <div class="project-cover">🎥</div>
+            <div class="project-content">
+              <span class="project-badge">重点项目 / 8层工业级PCB / 高速信号</span>
+              <h3>基于海思Hi3559AV100的8K超清音视频处理板设计</h3>
+              <p>参与“昆仑杯”工业软件创新挑战赛，围绕 8K 高性能 8 层工业级 PCB 全流程设计，重点体现高速板设计、接口电路、BGA扇出、差分信号和DFM交付能力。</p>
+              <ul>
+                <li>负责电源电路、USB3.0、JTAG、传感器中心与 WiFi 连接相关原理图设计</li>
+                <li>参与 Hi3559AV100 主芯片 BGA 扇出过孔规划，完成核心器件周边电阻、电容等无源器件摆放与布线</li>
+                <li>对 USB3.0 高速差分信号进行阻抗匹配与等长控制，提高高速传输稳定性</li>
+                <li>针对 RS232 接口进行远端布局与隔离防护，降低共模干扰，提升通信可靠性</li>
+                <li>完成 SD 卡、音频接口的电源与信号布线，兼顾 EMI 防护与可制造性</li>
+                <li>参与 8 路音视频采集通道布线，控制走线长度与参考平面完整性，减少串扰与信号反射</li>
+                <li>使用 DFM 工具进行 8 层板量产化审查，优化焊盘连接、走线间距等工艺风险，并交付 Gerber、ODB++ 文件</li>
+              </ul>
+              <div class="labels">
+                <span>Hi3559AV100</span><span>8K音视频</span><span>8层PCB</span><span>BGA扇出</span><span>USB3.0</span><span>差分等长</span><span>DFM</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">🏭</div>
+            <div class="project-content">
+              <h3>工业嵌入式数据采集系统</h3>
+              <p>参与“西门子杯工业嵌入式”项目，围绕工业数据采集、处理、显示和存储完成系统功能实现。</p>
+              <ul>
+                <li>基于 GD32F470VET6 完成电压数据采集、处理、显示与存储相关功能</li>
+                <li>编写按键与串口控制逻辑，集成 RTC 实时时钟、TF卡存储、参数存储和配置文件读取</li>
+                <li>涉及数据采集、数据加密、嵌入式系统调试和功能联调</li>
+              </ul>
+              <div class="labels">
+                <span>GD32</span><span>数据采集</span><span>RTC</span><span>TF卡</span>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card">
             <div class="project-cover">🌡️</div>
             <div class="project-content">
-              <h3>PT100测温电路</h3>
-              <p>基于 PT100 传感器的温度采集电路设计，包含三线制接线、信号放大、ADC采集等内容。</p>
+              <h3>PT100温度采集板</h3>
+              <p>设计三线制 PT100 温度采集相关电路，重点关注微弱信号调理、ADC采样、滤波和接口连接。</p>
+              <ul>
+                <li>包含 PT100 三线制接口、恒流或分压测量、运放调理、ADC输出与测试点</li>
+                <li>关注模拟信号低噪声布局、模拟/数字分区和传感器标定</li>
+              </ul>
               <div class="labels">
-                <span>PT100</span><span>传感器</span><span>ADC</span>
+                <span>PT100</span><span>传感器</span><span>运放</span><span>ADC</span>
               </div>
             </div>
           </article>
@@ -604,10 +715,14 @@
           <article class="project-card">
             <div class="project-cover">🔋</div>
             <div class="project-content">
-              <h3>电源保护与降压模块</h3>
-              <p>设计输入保护、保险丝、TVS、防反接、DCDC降压和LDO稳压部分，提高电路稳定性。</p>
+              <h3>12V/24V输入电源保护与降压板</h3>
+              <p>围绕工业供电场景，设计输入保护、DCDC降压、5V输出和3.3V稳压等电源模块。</p>
+              <ul>
+                <li>包含保险丝、TVS、防反接、输入电容、DCDC、LDO、LED指示和测试点</li>
+                <li>重点展示电源保护、器件选型、耐压余量、DCDC布局和限流上电调试能力</li>
+              </ul>
               <div class="labels">
-                <span>DCDC</span><span>TVS</span><span>电源保护</span>
+                <span>DCDC</span><span>TVS</span><span>LDO</span><span>电源保护</span>
               </div>
             </div>
           </article>
@@ -615,19 +730,27 @@
           <article class="project-card">
             <div class="project-cover">🚗</div>
             <div class="project-content">
-              <h3>智能小车调试</h3>
-              <p>围绕 TB6612 电机驱动、STM32控制、PID参数调试和电源问题排查进行实践。</p>
+              <h3>STM32小车控制底板</h3>
+              <p>围绕电池输入、MCU接口、电机驱动和外设扩展进行小车控制底板设计与故障复盘。</p>
+              <ul>
+                <li>涉及 TB6612 电机驱动、OLED、MPU6050、编码器接口和大电流走线</li>
+                <li>通过烧板问题复盘改进保险丝、TVS、线宽、GND和分模块上电流程</li>
+              </ul>
               <div class="labels">
-                <span>STM32</span><span>TB6612</span><span>PID</span>
+                <span>STM32</span><span>TB6612</span><span>电机驱动</span><span>调试</span>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-cover">🧩</div>
+            <div class="project-cover">🧱</div>
             <div class="project-content">
               <h3>3D打印结构件</h3>
-              <p>学习基础建模，设计用于云台或小车结构固定的简单零件，并考虑螺丝孔、凹槽和尺寸配合。</p>
+              <p>学习基础建模，设计用于云台或小车结构固定的简单零件，考虑螺丝孔、凹槽和尺寸配合。</p>
+              <ul>
+                <li>能够根据安装需求设置尺寸、孔位和结构固定方式</li>
+                <li>结合实际装配需求进行建模、导出和打印验证</li>
+              </ul>
               <div class="labels">
                 <span>3D建模</span><span>结构设计</span><span>打印</span>
               </div>
@@ -635,10 +758,14 @@
           </article>
 
           <article class="project-card">
-            <div class="project-cover">📄</div>
+            <div class="project-cover">🌐</div>
             <div class="project-content">
-              <h3>个人简历网页</h3>
-              <p>通过 GitHub Pages 搭建个人主页，用于展示简历、项目、证书和联系方式。</p>
+              <h3>个人简历与作品集网页</h3>
+              <p>通过 GitHub Pages 搭建个人主页，用于展示简历、项目、证书、技能和联系方式。</p>
+              <ul>
+                <li>使用 HTML 与 CSS 完成响应式页面布局</li>
+                <li>将项目能力从文档整理转化为可在线展示的作品集</li>
+              </ul>
               <div class="labels">
                 <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
               </div>
@@ -648,10 +775,14 @@
           <article class="project-card">
             <div class="project-cover">📚</div>
             <div class="project-content">
-              <h3>学习资料整理</h3>
-              <p>整理英语四级、电路设计、嵌入式开发、旅游攻略等学习资料，形成可复用文档。</p>
+              <h3>技术文档与学习资料整理</h3>
+              <p>整理英语四级、电路设计、嵌入式开发、器件选型、上电调试和项目复盘资料，形成可复用文档。</p>
+              <ul>
+                <li>将问题按“现象、测量、原因、改进”方式记录，方便后续复盘</li>
+                <li>整理项目目标、原理图说明、PCB截图、BOM、测试记录和改进方案</li>
+              </ul>
               <div class="labels">
-                <span>文档整理</span><span>学习计划</span><span>总结</span>
+                <span>文档整理</span><span>项目复盘</span><span>学习计划</span>
               </div>
             </div>
           </article>
@@ -668,21 +799,58 @@
 
         <div class="timeline">
           <div class="timeline-item">
-            <span>阶段一</span>
-            <h3>基础学习</h3>
-            <p>学习电路基础、单片机基础、常用电子元器件、GitHub使用和网页搭建。</p>
+            <span>教育背景</span>
+            <h3>广东理工学院｜电子信息工程（智能嵌入式）</h3>
+            <p>本科阶段围绕电子信息、嵌入式系统、硬件设计和工程实践方向进行学习。</p>
           </div>
 
           <div class="timeline-item">
-            <span>阶段二</span>
-            <h3>项目实践</h3>
-            <p>完成传感器采集、电源模块、小车驱动、PCB绘制和3D结构件等方向的实践。</p>
+            <span>重点PCB项目</span>
+            <h3>8K超清音视频处理板设计</h3>
+            <p>参与昆仑杯工业软件创新挑战赛，围绕海思 Hi3559AV100 与 8 层工业级 PCB，完成电源、USB3.0、JTAG、传感器中心、WiFi连接、高速差分、音视频采集通道、DFM审查与生产文件交付相关工作。</p>
           </div>
 
           <div class="timeline-item">
-            <span>阶段三</span>
-            <h3>作品集建设</h3>
-            <p>将项目过程、设计思路、问题排查和最终成果整理到 GitHub 与个人主页中。</p>
+            <span>竞赛项目</span>
+            <h3>工业嵌入式数据采集系统</h3>
+            <p>参与西门子杯工业嵌入式项目，基于 GD32F470VET6 实现电压数据采集、显示、存储、RTC、TF卡、串口与按键控制等功能。</p>
+          </div>
+
+          <div class="timeline-item">
+            <span>硬件作品集</span>
+            <h3>电源保护板、PT100采集板、STM32小车控制底板</h3>
+            <p>围绕“原理图 + PCB + 焊接调试 + 问题复盘”整理作品，突出电源、传感器、MCU接口、电机驱动和故障排查能力。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors">
+      <div class="container">
+        <div class="section-title">
+          <span>HONORS</span>
+          <h2>荣誉与证书</h2>
+        </div>
+
+        <div class="honors">
+          <div class="honor-item">
+            <h3>西门子杯国初赛二等奖</h3>
+            <p>工业嵌入式方向竞赛经历，体现嵌入式系统开发与工程实践能力。</p>
+          </div>
+
+          <div class="honor-item">
+            <h3>PCB Layout工程师初级证</h3>
+            <p>与硬件设计、PCB布局布线、工程制图和板级设计方向相关。</p>
+          </div>
+
+          <div class="honor-item">
+            <h3>讯飞积分赛一等奖 / 讯飞杯优秀奖</h3>
+            <p>体现学习能力、竞赛参与经历和持续实践意识。</p>
+          </div>
+
+          <div class="honor-item">
+            <h3>校奖学金 / 校优秀学生干部 / 校三好学生</h3>
+            <p>体现学习态度、组织能力和稳定的综合表现。</p>
           </div>
         </div>
       </div>
@@ -694,14 +862,15 @@
           <div>
             <h2>联系我</h2>
             <p>
-              这里可以放你的邮箱、GitHub主页、个人博客或其他联系方式。建议不要放身份证、手机号、证书编号等过于隐私的信息。
+              欢迎通过邮箱或 GitHub 与我联系。期待与更多同学、老师和工程实践伙伴交流嵌入式硬件、PCB设计与项目开发经验。
             </p>
           </div>
 
           <div class="contact-list">
-            <a href="https://github.com/你的GitHub用户名" target="_blank">GitHub：github.com/你的GitHub用户名</a>
-            <a href="mailto:你的邮箱@example.com">邮箱：你的邮箱@example.com</a>
-            <div>地址：可填写城市，例如广东 / 江门 / 广州</div>
+            <a href="https://github.com/tan2131" target="_blank">GitHub：github.com/tan2131</a>
+            <a href="https://tan2131.github.io/" target="_blank">个人主页：tan2131.github.io</a>
+            <a href="mailto:tan2131520968@qq.com">邮箱：tan2131520968@qq.com</a>
+            <div>地址：广东江门</div>
           </div>
         </div>
       </div>
