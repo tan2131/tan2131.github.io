@@ -3,32 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ruiting Tan | 嵌入式硬件工程师</title>
+  <title>个人简历与作品展示</title>
   <style>
-    :root {
-      --bg: #eef3f8;
-      --card: #ffffff;
-      --text: #162033;
-      --muted: #64748b;
-      --primary: #1e3a8a;
-      --primary-2: #2563eb;
-      --line: #dbe4ef;
-      --soft: #eaf1ff;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * {
-      box-sizing: border-box;
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 28%),
-        linear-gradient(180deg, #f8fbff 0%, var(--bg) 45%, #f7f9fc 100%);
-      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
       line-height: 1.7;
     }
 
@@ -37,657 +27,693 @@
       text-decoration: none;
     }
 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.82);
-      border-bottom: 1px solid var(--line);
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
     }
 
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 14px 22px;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav {
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
-    .brand {
+    .logo {
+      font-size: 20px;
       font-weight: 800;
-      color: var(--primary);
-      letter-spacing: 0.3px;
+      color: #2563eb;
+      letter-spacing: 0.5px;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      align-items: center;
+      gap: 22px;
+      font-size: 15px;
+      color: #475569;
     }
 
     .nav-links a:hover {
-      color: var(--primary-2);
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 34px 22px 70px;
+      color: #2563eb;
     }
 
     .hero {
+      padding: 88px 0 72px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
+        linear-gradient(135deg, #eff6ff 0%, #f8fafc 48%, #ffffff 100%);
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 24px;
-      align-items: stretch;
-      margin-top: 18px;
-    }
-
-    .hero-card,
-    .profile-card,
-    .section,
-    .project-card,
-    .skill-card {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(219, 228, 239, 0.95);
-      box-shadow: var(--shadow);
-      border-radius: 24px;
-    }
-
-    .hero-card {
-      padding: 42px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      right: -80px;
-      bottom: -80px;
-      background: rgba(37, 99, 235, 0.12);
-      border-radius: 50%;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: center;
     }
 
     .tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 13px;
-      background: var(--soft);
-      color: var(--primary);
+      padding: 7px 13px;
       border-radius: 999px;
-      font-weight: 700;
+      color: #1d4ed8;
+      background: #dbeafe;
       font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 18px;
     }
 
-    h1 {
-      margin: 22px 0 12px;
-      font-size: clamp(34px, 5vw, 56px);
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
       line-height: 1.12;
-      letter-spacing: -1.5px;
+      margin-bottom: 18px;
       color: #0f172a;
     }
 
-    .subtitle {
-      font-size: 20px;
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 16px;
+    .hero h1 span {
+      color: #2563eb;
     }
 
-    .hero-text {
+    .hero p {
       color: #475569;
-      max-width: 700px;
-      font-size: 16px;
-      position: relative;
-      z-index: 1;
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 28px;
     }
 
-    .hero-actions {
-      margin-top: 26px;
+    .actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
+      gap: 14px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 14px;
-      font-weight: 800;
+      font-weight: 700;
+      transition: 0.25s ease;
       border: 1px solid transparent;
-      transition: 0.18s ease;
     }
 
     .btn-primary {
-      background: var(--primary-2);
+      background: #2563eb;
       color: white;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.28);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.32);
+      background: #1d4ed8;
     }
 
-    .btn-secondary {
+    .btn-outline {
       background: white;
-      color: var(--primary);
-      border-color: var(--line);
+      color: #2563eb;
+      border-color: #bfdbfe;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--primary-2);
-      color: var(--primary-2);
+    .btn-outline:hover {
+      border-color: #2563eb;
       transform: translateY(-2px);
     }
 
     .profile-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.26);
+      border-radius: 28px;
       padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 22px;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
     }
 
     .avatar {
-      width: 104px;
-      height: 104px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+      width: 118px;
+      height: 118px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 36px;
+      font-size: 44px;
       font-weight: 900;
-      box-shadow: 0 16px 35px rgba(30, 58, 138, 0.26);
+      margin-bottom: 20px;
     }
 
     .profile-card h2 {
-      margin: 0;
-      font-size: 26px;
+      font-size: 24px;
       color: #0f172a;
+      margin-bottom: 8px;
     }
 
     .profile-card p {
-      color: var(--muted);
-      margin: 4px 0 0;
+      color: #64748b;
+      margin-bottom: 18px;
     }
 
     .info-list {
       display: grid;
-      gap: 12px;
-      margin-top: 12px;
+      gap: 10px;
+      font-size: 15px;
     }
 
-    .info-item {
+    .info-list div {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed var(--line);
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .info-list strong {
       color: #334155;
-      font-size: 14px;
+      white-space: nowrap;
     }
 
-    .info-item span:first-child {
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin: 26px 0 12px;
-    }
-
-    .stat {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 25px;
-      color: var(--primary);
-      line-height: 1.1;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .section {
-      padding: 32px;
-      margin-top: 24px;
+    section {
+      padding: 76px 0;
     }
 
     .section-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 22px;
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
 
     .section-title h2 {
-      margin: 0;
-      font-size: 27px;
+      font-size: clamp(28px, 4vw, 38px);
       color: #0f172a;
     }
 
-    .section-title p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 620px;
-      font-size: 14px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
-    .timeline {
-      position: relative;
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 26px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h3 {
+      color: #0f172a;
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p,
+    .card li {
+      color: #475569;
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .skills {
       display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .timeline-item {
-      padding: 18px 18px 18px 22px;
-      border-left: 4px solid var(--primary-2);
-      background: #f8fbff;
-      border-radius: 16px;
+    .skill-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+      transition: 0.25s ease;
     }
 
-    .timeline-item .time {
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 14px;
+    .skill-item:hover {
+      transform: translateY(-5px);
+      border-color: #93c5fd;
     }
 
-    .timeline-item h3 {
-      margin: 6px 0 6px;
+    .skill-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .skill-item h3 {
       font-size: 18px;
+      margin-bottom: 8px;
+      color: #0f172a;
     }
 
-    .timeline-item p {
-      margin: 0;
-      color: #475569;
+    .skill-item p {
+      color: #64748b;
+      font-size: 14px;
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .project-card {
+      overflow: hidden;
+      background: white;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-cover {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+    }
+
+    .project-content {
       padding: 22px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
     }
 
-    .project-card h3 {
-      margin: 10px 0 10px;
-      font-size: 20px;
+    .project-content h3 {
       color: #0f172a;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
-    .project-card p {
-      color: #475569;
-      margin: 0 0 14px;
+    .project-content p {
+      color: #64748b;
+      font-size: 15px;
+      margin-bottom: 14px;
     }
 
-    .badge-row {
+    .labels {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 16px;
     }
 
-    .badge {
-      padding: 6px 10px;
+    .labels span {
+      padding: 5px 10px;
       border-radius: 999px;
-      background: #eef5ff;
-      color: #1d4ed8;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .skill-card {
-      padding: 20px;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-    }
-
-    .skill-card h3 {
-      margin: 0 0 12px;
-      color: var(--primary);
-      font-size: 18px;
-    }
-
-    .skill-card ul {
-      padding-left: 18px;
-      margin: 0;
+      background: #f1f5f9;
       color: #475569;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .honors {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .honor {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: #f8fbff;
-      border: 1px solid var(--line);
-      color: #334155;
-      font-weight: 700;
-    }
-
-    .contact {
+    .timeline {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 18px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      background: white;
+      border-left: 5px solid #2563eb;
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .timeline-item h3 {
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item span {
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 14px;
     }
 
     .contact-box {
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #f8fbff;
+      background: linear-gradient(135deg, #2563eb, #0f172a);
+      border-radius: 30px;
+      padding: 42px;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(37, 99, 235, 0.24);
     }
 
-    .contact-box span {
-      color: var(--muted);
-      font-size: 13px;
+    .contact-box h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
     }
 
-    .contact-box strong {
-      display: block;
-      margin-top: 6px;
-      color: #0f172a;
-      word-break: break-word;
+    .contact-box p {
+      color: #dbeafe;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-list a,
+    .contact-list div {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 13px 16px;
+      border-radius: 16px;
+      color: white;
     }
 
     footer {
       text-align: center;
-      color: var(--muted);
-      padding: 32px 16px 48px;
+      color: #64748b;
+      padding: 28px 0 38px;
       font-size: 14px;
     }
 
-    @media (max-width: 860px) {
-      .hero,
-      .projects,
-      .skills-grid,
-      .contact {
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.3);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-box {
         grid-template-columns: 1fr;
       }
 
-      .stats {
+      .skills,
+      .projects {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-card,
-      .section {
-        padding: 26px;
-      }
-
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
       }
     }
 
-    @media (max-width: 520px) {
-      .stats {
+    @media (max-width: 640px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 6px;
+      }
+
+      .hero {
+        padding: 58px 0 50px;
+      }
+
+      .skills,
+      .projects {
         grid-template-columns: 1fr;
       }
 
-      .hero-card,
-      .profile-card,
-      .section {
-        border-radius: 18px;
+      .contact-box {
+        padding: 28px;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top">Ruiting Tan</a>
-      <div class="nav-links">
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home">Tan Ruiting</a>
+      <nav class="nav-links">
         <a href="#about">关于我</a>
-        <a href="#projects">项目经历</a>
         <a href="#skills">技能</a>
-        <a href="#honors">荣誉</a>
+        <a href="#projects">作品</a>
+        <a href="#experience">经历</a>
         <a href="#contact">联系我</a>
-      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main id="top" class="container">
+  <main id="home">
     <section class="hero">
-      <div class="hero-card">
-        <span class="tag">Embedded Hardware Engineer</span>
-        <h1>你好，我是 Ruiting Tan</h1>
-        <div class="subtitle">电子信息工程 · 智能嵌入式方向</div>
-        <p class="hero-text">
-          我关注嵌入式硬件、PCB Layout、工业数据采集与硬件调试。曾参与西门子杯工业嵌入式数据采集系统、昆仑杯 Hi3559AV100 8K 超清音视频处理板等项目，具备原理图设计、PCB 布局布线、BOM 整理、焊接测试与调试经验。
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">查看项目经历</a>
-          <a class="btn btn-secondary" href="https://github.com/tan2131" target="_blank" rel="noopener">访问 GitHub</a>
-        </div>
-      </div>
-
-      <aside class="profile-card" id="about">
+      <div class="container hero-grid">
         <div>
-          <div class="avatar">RT</div>
-          <h2>嵌入式硬件工程师方向</h2>
-          <p>广东江门 · 本科 · 电子信息工程</p>
-        </div>
-        <div class="info-list">
-          <div class="info-item"><span>求职意向</span><strong>嵌入式硬件工程师</strong></div>
-          <div class="info-item"><span>学校</span><strong>广东理工学院</strong></div>
-          <div class="info-item"><span>专业</span><strong>电子信息工程（智能嵌入式）</strong></div>
-          <div class="info-item"><span>GitHub</span><strong>tan2131</strong></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="stats" aria-label="个人亮点">
-      <div class="stat"><strong>PCB</strong><span>Layout 与硬件设计</span></div>
-      <div class="stat"><strong>STM32</strong><span>GD32 / ESP32 开发基础</span></div>
-      <div class="stat"><strong>8 层板</strong><span>高速接口与DFM经验</span></div>
-      <div class="stat"><strong>项目</strong><span>比赛项目与课程设计</span></div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <h2>教育背景</h2>
-        <p>电子信息工程（智能嵌入式）方向，学习嵌入式系统、PCB 设计、单片机开发与硬件调试相关内容。</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">2018.09 — 2022.06</div>
-          <h3>广东理工学院 · 电子信息工程（智能嵌入式）</h3>
-          <p>本科阶段重点积累嵌入式硬件设计、MCU 开发、EDA 工具使用、焊接测试与工程文件整理能力。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="section-title">
-        <h2>项目经历</h2>
-        <p>以下内容根据个人简历整理，重点突出硬件设计、嵌入式开发、接口调试和工程交付能力。</p>
-      </div>
-
-      <div class="projects">
-        <article class="project-card">
-          <span class="tag">工业嵌入式</span>
-          <h3>工业嵌入式数据采集系统</h3>
+          <div class="tag">👋 欢迎来到我的个人主页</div>
+          <h1>你好，我是 <span>Tan Ruiting</span></h1>
           <p>
-            参与“西门子杯工业嵌入式”项目，基于 GD32F470VET6 实现电压数据采集、处理、显示与存储功能。负责逻辑代码编写，设计按键与串口控制流程，并集成 RTC 实时时钟、TF 卡存储、参数存储、数据加密和配置文件读取等功能。
+            我正在学习电子设计、嵌入式开发、网页制作和项目实践。这个网站用于展示我的个人简历、学习经历、项目作品和证书成果。
           </p>
-          <div class="badge-row">
-            <span class="badge">GD32F470VET6</span>
-            <span class="badge">数据采集</span>
-            <span class="badge">串口控制</span>
-            <span class="badge">TF卡存储</span>
-            <span class="badge">RTC</span>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">查看我的作品</a>
+            <a class="btn btn-outline" href="#contact">联系我</a>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card">
-          <span class="tag">高速 PCB</span>
-          <h3>Hi3559AV100 8K 超清音视频处理板设计</h3>
-          <p>
-            参与“昆仑杯”工业软件创新挑战赛，面向 8K 高性能 8 层工业级 PCB 进行全流程设计。负责电源、USB3.0、JTAG、传感器中心与 WiFi 连接等原理图设计；参与 Hi3559AV100 主芯片扇出、核心器件布局、高速差分信号等长与阻抗控制，并完成 DFM 审查与 Gerber、ODB++ 生产文件交付。
-          </p>
-          <div class="badge-row">
-            <span class="badge">Hi3559AV100</span>
-            <span class="badge">8层PCB</span>
-            <span class="badge">USB3.0</span>
-            <span class="badge">BGA扇出</span>
-            <span class="badge">DFM</span>
+        <aside class="profile-card">
+          <div class="avatar">T</div>
+          <h2>Tan Ruiting</h2>
+          <p>电子信息 / 嵌入式学习者 / 项目实践者</p>
+          <div class="info-list">
+            <div><strong>方向</strong><span>嵌入式、硬件、电路设计</span></div>
+            <div><strong>工具</strong><span>嘉立创EDA、GitHub、Keil</span></div>
+            <div><strong>目标</strong><span>持续积累项目作品</span></div>
           </div>
-        </article>
-
-        <article class="project-card">
-          <span class="tag">课程项目</span>
-          <h3>智能窗帘系统</h3>
-          <p>
-            基于 C 语言与嵌入式控制思路完成课程设计，围绕传感器输入、控制逻辑、执行机构驱动和人机交互进行系统实现，强化了单片机工程结构与调试能力。
-          </p>
-          <div class="badge-row">
-            <span class="badge">C语言</span>
-            <span class="badge">MCU</span>
-            <span class="badge">传感器</span>
-            <span class="badge">控制逻辑</span>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <span class="tag">硬件设计</span>
-          <h3>PT100 温度采样与电源板设计</h3>
-          <p>
-            围绕工业嵌入式系统开发，开展 PT100 温度采样板、精密电阻模拟测试板与 DC-DC 降压电源板设计，覆盖恒流源激励、信号调理、ADC 采样、SPI 接口、电源保护、PCB 布局与调试验证等内容。
-          </p>
-          <div class="badge-row">
-            <span class="badge">PT100</span>
-            <span class="badge">ADC</span>
-            <span class="badge">SPI</span>
-            <span class="badge">DC-DC</span>
-            <span class="badge">PCB调试</span>
-          </div>
-        </article>
+        </aside>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="section-title">
-        <h2>掌握技能</h2>
-        <p>能力方向覆盖硬件设计、EDA 工具、MCU 开发基础、焊接测试和工程交付。</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>硬件与 PCB</h3>
-          <ul>
-            <li>原理图设计与 PCB Layout</li>
-            <li>多层板布局布线与 DFM 审查</li>
-            <li>高速差分线等长与阻抗控制基础</li>
-            <li>电源、USB、JTAG、传感器接口设计</li>
-          </ul>
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>ABOUT</span>
+          <h2>关于我</h2>
         </div>
 
-        <div class="skill-card">
-          <h3>开发工具</h3>
-          <ul>
-            <li>Altium Designer</li>
-            <li>嘉立创 EDA</li>
-            <li>CubeMX</li>
-            <li>Keil</li>
-          </ul>
-        </div>
+        <div class="about-grid">
+          <div class="card">
+            <h3>个人简介</h3>
+            <p>
+              我对电子设计、单片机开发、传感器应用和网页展示比较感兴趣。目前正在通过实际项目提升自己的动手能力，包括电路原理图设计、PCB布局、模块调试、GitHub项目管理和网页发布。
+            </p>
+          </div>
 
-        <div class="skill-card">
-          <h3>MCU 与调试</h3>
-          <ul>
-            <li>STM32 / GD32 / ESP32</li>
-            <li>串口、SPI、ADC 等外设基础</li>
-            <li>焊接、测试、故障排查</li>
-            <li>3D 打印建模基础</li>
-          </ul>
+          <div class="card">
+            <h3>我的特点</h3>
+            <ul>
+              <li>愿意从零开始学习新工具和新技术</li>
+              <li>重视实际操作，喜欢把想法做成可以展示的作品</li>
+              <li>能持续记录问题、总结经验、改进项目</li>
+              <li>正在逐步建立自己的作品集和技术积累</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="honors">
-      <div class="section-title">
-        <h2>荣誉与证书</h2>
-        <p>比赛、证书与校园经历。</p>
-      </div>
-      <div class="honors">
-        <div class="honor">西门子杯国初赛二等奖</div>
-        <div class="honor">PCB Layout 工程师初级证</div>
-        <div class="honor">讯飞积分赛一等奖</div>
-        <div class="honor">讯飞杯优秀奖</div>
-        <div class="honor">校奖学金一、二等奖</div>
-        <div class="honor">校优秀学生干部</div>
-        <div class="honor">校三好学生</div>
-        <div class="honor">优秀工作人员</div>
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <span>SKILLS</span>
+          <h2>技能方向</h2>
+        </div>
+
+        <div class="skills">
+          <div class="skill-item">
+            <div class="skill-icon">🔌</div>
+            <h3>电路设计</h3>
+            <p>学习电源保护、DCDC降压、传感器采集、PCB布局等内容。</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-icon">💻</div>
+            <h3>嵌入式开发</h3>
+            <p>了解 STM32、传感器模块、OLED显示、电机驱动等应用。</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-icon">🌐</div>
+            <h3>网页制作</h3>
+            <p>能够使用 HTML、CSS 制作个人主页，并部署到 GitHub Pages。</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-icon">🧰</div>
+            <h3>项目管理</h3>
+            <p>使用 GitHub 保存代码、文档和项目记录，逐步形成作品集。</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="section-title">
-        <h2>联系我</h2>
-        <p>欢迎通过 GitHub 或邮箱与我联系，交流嵌入式硬件、PCB 设计和项目合作相关内容。</p>
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <span>PORTFOLIO</span>
+          <h2>作品展示</h2>
+        </div>
+
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-cover">🌡️</div>
+            <div class="project-content">
+              <h3>PT100测温电路</h3>
+              <p>基于 PT100 传感器的温度采集电路设计，包含三线制接线、信号放大、ADC采集等内容。</p>
+              <div class="labels">
+                <span>PT100</span><span>传感器</span><span>ADC</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">🔋</div>
+            <div class="project-content">
+              <h3>电源保护与降压模块</h3>
+              <p>设计输入保护、保险丝、TVS、防反接、DCDC降压和LDO稳压部分，提高电路稳定性。</p>
+              <div class="labels">
+                <span>DCDC</span><span>TVS</span><span>电源保护</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">🚗</div>
+            <div class="project-content">
+              <h3>智能小车调试</h3>
+              <p>围绕 TB6612 电机驱动、STM32控制、PID参数调试和电源问题排查进行实践。</p>
+              <div class="labels">
+                <span>STM32</span><span>TB6612</span><span>PID</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">🧩</div>
+            <div class="project-content">
+              <h3>3D打印结构件</h3>
+              <p>学习基础建模，设计用于云台或小车结构固定的简单零件，并考虑螺丝孔、凹槽和尺寸配合。</p>
+              <div class="labels">
+                <span>3D建模</span><span>结构设计</span><span>打印</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">📄</div>
+            <div class="project-content">
+              <h3>个人简历网页</h3>
+              <p>通过 GitHub Pages 搭建个人主页，用于展示简历、项目、证书和联系方式。</p>
+              <div class="labels">
+                <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">📚</div>
+            <div class="project-content">
+              <h3>学习资料整理</h3>
+              <p>整理英语四级、电路设计、嵌入式开发、旅游攻略等学习资料，形成可复用文档。</p>
+              <div class="labels">
+                <span>文档整理</span><span>学习计划</span><span>总结</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="contact">
-        <a class="contact-box" href="https://github.com/tan2131" target="_blank" rel="noopener">
-          <span>GitHub</span>
-          <strong>github.com/tan2131</strong>
-        </a>
-        <a class="contact-box" href="mailto:tan2131520968@qq.com">
-          <span>Email</span>
-          <strong>tan2131520968@qq.com</strong>
-        </a>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">
+          <span>EXPERIENCE</span>
+          <h2>学习与实践经历</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>阶段一</span>
+            <h3>基础学习</h3>
+            <p>学习电路基础、单片机基础、常用电子元器件、GitHub使用和网页搭建。</p>
+          </div>
+
+          <div class="timeline-item">
+            <span>阶段二</span>
+            <h3>项目实践</h3>
+            <p>完成传感器采集、电源模块、小车驱动、PCB绘制和3D结构件等方向的实践。</p>
+          </div>
+
+          <div class="timeline-item">
+            <span>阶段三</span>
+            <h3>作品集建设</h3>
+            <p>将项目过程、设计思路、问题排查和最终成果整理到 GitHub 与个人主页中。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>联系我</h2>
+            <p>
+              这里可以放你的邮箱、GitHub主页、个人博客或其他联系方式。建议不要放身份证、手机号、证书编号等过于隐私的信息。
+            </p>
+          </div>
+
+          <div class="contact-list">
+            <a href="https://github.com/你的GitHub用户名" target="_blank">GitHub：github.com/你的GitHub用户名</a>
+            <a href="mailto:你的邮箱@example.com">邮箱：你的邮箱@example.com</a>
+            <div>地址：可填写城市，例如广东 / 江门 / 广州</div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2026 Ruiting Tan. Built with GitHub Pages.
+    <div class="container">
+      © 2026 Tan Ruiting. Built with HTML & CSS. 持续更新中。
+    </div>
   </footer>
+
+  <a class="back-top" href="#home">↑</a>
 </body>
 </html>
